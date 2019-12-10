@@ -1,16 +1,29 @@
-# flutter_clean_todo
+# To Do Flutter Clean Architecture Implementation
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![pub package](https://img.shields.io/pub/v/flutter_clean_architecture.svg)
 
-Flutter ToDo on Clean Architecture
 
-## Getting Started
+## Overview
+This is a todo implementation base on https://github.com/ShadyBoukhary/flutter_clean_architecture an Clean architecture flutter: A Flutter package that makes it easy and intuitive to implement Uncle Bob's Clean Architecture in Flutter. This package provides basic classes that are tuned to work with Flutter and are designed according to the Clean Architecture.
 
-This project is a starting point for a Flutter application.
+## Installation
 
-A few resources to get you started if this is your first Flutter project:
+### 1. Depend on It
+Add this to your package's pubspec.yaml file:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```yaml
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+dependencies:
+  flutter_clean_architecture: ^1.0.5
+
+```
+
+### 2. Install it
+You can install packages from the command line:
+
+with Flutter:
+
+```shell
+$ flutter packages get
+```
+
+Alternatively, your editor might support `flutter packages get`. Check the docs for your editor to learn more.
