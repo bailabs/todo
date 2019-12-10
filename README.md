@@ -7,17 +7,7 @@ This is a todo implementation base on https://github.com/ShadyBoukhary/flutter_c
 
 ## Installation
 
-### 1. Depend on It
-Add this to your package's pubspec.yaml file:
-
-```yaml
-
-dependencies:
-  flutter_clean_architecture: ^1.0.5
-
-```
-
-### 2. Install it
+### 1. Install it
 You can install packages from the command line:
 
 with Flutter:
