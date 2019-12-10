@@ -3,7 +3,7 @@
 
 
 ## Overview
-This is a todo implementation base on https://github.com/ShadyBoukhary/flutter_clean_architecture an Clean architecture flutter: A Flutter package that makes it easy and intuitive to implement Uncle Bob's Clean Architecture in Flutter. This package provides basic classes that are tuned to work with Flutter and are designed according to the Clean Architecture.
+This is a todo implementation base on https://github.com/ShadyBoukhary/flutter_clean_architecture an clean architecture flutter that makes it easy and intuitive to implement Uncle Bob's Clean Architecture in Flutter. 
 
 ## Installation
 
