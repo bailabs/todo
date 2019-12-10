@@ -1,5 +1,5 @@
 # To Do Flutter Clean Architecture Implementation
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) ![pub package](https://img.shields.io/pub/v/flutter_clean_architecture.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) 
 
 
 ## Overview
