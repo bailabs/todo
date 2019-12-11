@@ -19,17 +19,17 @@ class _TodoAddViewState extends ViewState<TodoAddView, TodoAddController> {
   _TodoAddViewState(TodoAddController controller) : super(controller);
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: Text('Todo Add')),
-        body: Container(
-          child: TodoAddForm(
-            onAdd: (value) {
-              controller.addTodo(value);
-              if (widget.callback != null) {
-                widget.callback();
-              }
-              Navigator.of(context).pop();
-            },
-          ),
-        ),
-      );
+    appBar: AppBar(title: Text('Todo Add')),
+    body: Container(
+      child: TodoAddForm(
+        onAdd: (value) {
+          controller.addTodo(value);
+          if (widget.callback != null) {
+            widget.callback();
+          }
+          Navigator.of(context).pop();
+        },
+      ),
+    ),
+  );
 }
