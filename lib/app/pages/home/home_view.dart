@@ -28,6 +28,10 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
       child: SingleChildScrollView(
         child: TodosColumn(
           data: controller.todoList,
+          onLongPressed: (value) => callHandler(
+            controller.removeTodo,
+            params: { 'id': value },
+          ),
           onPressed: (value) => callHandler(
             controller.completeTodo,
             params: { 'id': value },

@@ -18,4 +18,9 @@ class HomeController extends Controller {
     int id = params['id'];
     this.repository.completeTodo(id);
   }
+
+  void removeTodo(Map<String, dynamic> params) {
+    int id = params['id'];
+    this.repository.removeTodo(id);
+  }
 }

@@ -5,8 +5,13 @@ import 'todo_card.dart';
 class TodosColumn extends StatelessWidget {
   final List<Todo> data;
   final Function(int) onPressed;
+  final Function(int) onLongPressed;
 
-  TodosColumn({@required this.data, @required this.onPressed});
+  TodosColumn({
+    @required this.data,
+    @required this.onPressed,
+    @required this.onLongPressed,
+  });
 
   List<Widget> dataToWidgets() {
     return data.map((todo) =>
@@ -14,6 +19,7 @@ class TodosColumn extends StatelessWidget {
         title: todo.title,
         completed: todo.completed,
         onTap: () => this.onPressed(todo.id),
+        onLongPress: () => this.onLongPressed(todo.id),
       )
     ).toList();
   }
