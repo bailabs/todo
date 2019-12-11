@@ -16,5 +16,5 @@ class TodoEditController extends Controller {
   }
 
   void removeTodo(int id) => this.presenter.remove(id);
-
+  void editTodo(int id, String title) => this.presenter.edit(id, title);
 }

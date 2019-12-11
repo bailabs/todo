@@ -38,7 +38,15 @@ class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
       ],
     ),
     body: Container(
-      child: TodoEditForm(onEdit: (value) => print(value)),
+      child: TodoEditForm(
+        onEdit: (value) {
+          controller.editTodo(widget.id, value);
+          if (widget.callback != null) {
+            widget.callback();
+          }
+          Navigator.of(context).pop();
+        },
+      ),
     ),
   );
 }
