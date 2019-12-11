@@ -10,6 +10,8 @@ class HomePresenter extends Presenter {
   final GetAllTodosUseCase getAllTodosUseCase;
 
   Function getAllTodosOnNext;
+  Function completeOnNext;
+  Function removeOnNext;
 
   HomePresenter(todosRepo):
     removeTodoUseCase = RemoveTodoUseCase(todosRepo),
@@ -26,7 +28,7 @@ class HomePresenter extends Presenter {
   }
 
   void getAll() {
-
+    getAllTodosUseCase.execute(_GetAllTodosObserver(this), {});
   }
 
   @override
