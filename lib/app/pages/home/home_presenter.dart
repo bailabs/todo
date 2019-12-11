@@ -10,6 +10,8 @@ class HomePresenter extends Presenter {
   final GetAllTodosUseCase getAllTodosUseCase;
 
   Function getAllTodosOnNext;
+  Function completeOnNext;
+  Function removeOnNext;
 
   HomePresenter(todosRepo):
     removeTodoUseCase = RemoveTodoUseCase(todosRepo),

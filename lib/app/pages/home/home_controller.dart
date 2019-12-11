@@ -5,12 +5,11 @@ import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 
 class HomeController extends Controller {
   final HomePresenter presenter;
-  final TodosRepository todosRepository;
 
   List<Todo> _todos;
   List<Todo> get todoList => _todos;
 
-  HomeController(this.todosRepository):
+  HomeController(TodosRepository todosRepository):
     presenter = HomePresenter(todosRepository) {
     _todos = List<Todo>();
     initListeners();
@@ -26,9 +25,15 @@ class HomeController extends Controller {
     };
   }
 
-  void completeTodo(Map<String, dynamic> params) => this.presenter.complete(params['id']);
-  void removeTodo(Map<String, dynamic> params) => this.presenter.remove(params['id']);
-  void retrieveData() {
+  void retrieveData() => this.presenter.getAll();
+
+  void completeTodo(Map<String, dynamic> params) {
+    this.presenter.complete(params['id']);
+    this.presenter.getAll();
+  }
+
+  void removeTodo(Map<String, dynamic> params) {
+    this.presenter.remove(params['id']);
     this.presenter.getAll();
   }
 
