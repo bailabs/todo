@@ -21,7 +21,11 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
     floatingActionButton: FloatingActionButton(
       child: Icon(Icons.add),
       onPressed: () => Navigator.of(context).push(
-        MaterialPageRoute(builder: (_) => TodoAddView())
+        MaterialPageRoute(
+          builder: (_) => TodoAddView(
+            callback: () => controller.retrieveData(),
+          ),
+        ),
       ),
     ),
     body: Container(

@@ -6,6 +6,10 @@ import 'todo_add_controller.dart';
 import 'widgets/todo_add_form.dart';
 
 class TodoAddView extends View {
+  final Function callback;
+
+  TodoAddView({this.callback}) : super();
+
   @override
   _TodoAddViewState createState() =>
       _TodoAddViewState(TodoAddController(DataTodosRepository()));
@@ -20,6 +24,9 @@ class _TodoAddViewState extends ViewState<TodoAddView, TodoAddController> {
           child: TodoAddForm(
             onAdd: (value) {
               controller.addTodo(value);
+              if (widget.callback != null) {
+                widget.callback();
+              }
               Navigator.of(context).pop();
             },
           ),

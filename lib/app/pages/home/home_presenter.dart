@@ -26,7 +26,7 @@ class HomePresenter extends Presenter {
   }
 
   void getAll() {
-
+    getAllTodosUseCase.execute(_GetAllTodosObserver(this), {});
   }
 
   @override

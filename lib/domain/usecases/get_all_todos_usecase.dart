@@ -12,6 +12,6 @@ class GetAllTodosUseCase extends UseCase<List<Todo>, void> {
     final StreamController<List<Todo>> controller = StreamController();
     controller.add(todosRepository.allTodos);
     controller.close();
-    return Future<Observable>.value(Observable(controller.stream));
+    return Future<Observable<List<Todo>>>.value(Observable(controller.stream));
   }
 }
