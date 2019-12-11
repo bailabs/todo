@@ -13,7 +13,17 @@ class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
   _TodoEditViewState(TodoEditController controller) : super(controller);
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text('Todo Edit')),
+    appBar: AppBar(
+      title: Text('Todo Edit'),
+      actions: <Widget>[
+        IconButton(
+          icon: Icon(Icons.delete),
+          onPressed: () {
+            print('Waaaa');
+          },
+        )
+      ],
+    ),
     body: Container(
       child: TodoEditForm(onEdit: (value) => print(value)),
     ),
