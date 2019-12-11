@@ -38,7 +38,12 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
             params: { 'id': value },
           ),
           onPressed: (value) => Navigator.of(context).push(
-            MaterialPageRoute(builder: (_) => TodoEditView())
+            MaterialPageRoute(
+              builder: (_) => TodoEditView(
+                id: value,
+                callback: () => controller.retrieveData(),
+              ),
+            ),
           ),
         ),
       ),
