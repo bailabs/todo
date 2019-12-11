@@ -34,7 +34,7 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
         child: TodosColumn(
           data: controller.todoList,
           onLongPressed: (value) => callHandler(
-            controller.removeTodo,
+            controller.completeTodo,
             params: { 'id': value },
           ),
           onPressed: (value) => Navigator.of(context).push(
