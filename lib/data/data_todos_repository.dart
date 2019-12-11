@@ -23,6 +23,11 @@ class DataTodosRepository extends TodosRepository {
   }
 
   @override
+  void removeTodo(int id) {
+    _todos = _todos.where((todo) => todo.id != id).toList();
+  }
+
+  @override
   int get todosLength => _todos.length;
 
   @override
