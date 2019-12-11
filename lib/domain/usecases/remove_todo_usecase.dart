@@ -3,7 +3,7 @@ import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
 class RemoveTodoUseCase extends UseCase<void, RemoveTodoUseCaseParams> {
-  TodosRepository todosRepository;
+  final TodosRepository todosRepository;
   RemoveTodoUseCase(this.todosRepository);
 
   @override
