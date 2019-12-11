@@ -5,6 +5,7 @@ abstract class TodosRepository {
   void editTodo(int id, String title);
   void completeTodo(int id);
   void removeTodo(int id);
+  Todo getTodo(int id);
   int get todosLength;
   List<Todo> get allTodos;
 }

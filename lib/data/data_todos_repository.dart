@@ -36,6 +36,11 @@ class DataTodosRepository extends TodosRepository {
   }
 
   @override
+  Todo getTodo(int id) {
+    return _todos.firstWhere((todo) => todo.id == id);
+  }
+
+  @override
   int get todosLength => _todos.length;
 
   @override
