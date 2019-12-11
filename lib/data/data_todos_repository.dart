@@ -15,6 +15,14 @@ class DataTodosRepository extends TodosRepository {
   void addTodo(Todo todo) => _todos.add(todo);
 
   @override
+  void editTodo(int id, String title) {
+    final todo = _todos.firstWhere((todo) => todo.id == id);
+    if (todo != null) {
+      todo.title = title;
+    }
+  }
+
+  @override
   void completeTodo(int id) {
     final todo = _todos.firstWhere((todo) => todo.id == id);
     if (todo != null) {

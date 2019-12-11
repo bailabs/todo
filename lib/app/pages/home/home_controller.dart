@@ -32,11 +32,6 @@ class HomeController extends Controller {
     this.presenter.getAll();
   }
 
-  void removeTodo(Map<String, dynamic> params) {
-    this.presenter.remove(params['id']);
-    this.presenter.getAll();
-  }
-
   @override
   void dispose() {
     presenter.dispose();
