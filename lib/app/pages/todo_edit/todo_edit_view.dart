@@ -15,7 +15,7 @@ class TodoEditView extends View {
 
   @override
   _TodoEditViewState createState() =>
-    _TodoEditViewState(TodoEditController(DataTodosRepository()));
+    _TodoEditViewState(TodoEditController(DataTodosRepository(), id));
 }
 
 class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
@@ -39,6 +39,7 @@ class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
     ),
     body: Container(
       child: TodoEditForm(
+        initialValue: controller.title,
         onEdit: (value) {
           controller.editTodo(widget.id, value);
           if (widget.callback != null) {
