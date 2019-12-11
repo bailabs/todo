@@ -6,11 +6,32 @@ class HomePresenter extends Presenter {
   HomePresenter(todosRepo): removeTodoUseCase = RemoveTodoUseCase(todosRepo);
 
   void remove(int id) {
-    print('at the presenter $id');
+    removeTodoUseCase.execute(_RemoveTodoObserver(this), RemoveTodoUseCaseParams(id));
   }
 
   @override
   void dispose() {
     removeTodoUseCase.dispose();
+  }
+}
+
+class _RemoveTodoObserver implements Observer<void> {
+  final HomePresenter presenter;
+
+  _RemoveTodoObserver(this.presenter);
+
+  @override
+  void onComplete() {
+    // TODO: implement onComplete
+  }
+
+  @override
+  void onError(e) {
+    // TODO: implement onError
+  }
+
+  @override
+  void onNext(ignore) {
+    // TODO: implement onNext
   }
 }
