@@ -8,10 +8,10 @@ class GetAllTodosUseCase extends UseCase<List<Todo>, void> {
   final TodosRepository todosRepository;
   GetAllTodosUseCase(this.todosRepository);
   @override
-  Future<Observable<List<Todo>>> buildUseCaseObservable(void params) {
+  Future<Observable<List<Todo>>> buildUseCaseObservable(void params) async {
     final StreamController<List<Todo>> controller = StreamController();
     controller.add(todosRepository.allTodos);
     controller.close();
-    return Future<Observable<List<Todo>>>.value(Observable(controller.stream));
+    return Observable(controller.stream);
   }
 }
