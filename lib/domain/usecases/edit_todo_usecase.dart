@@ -1,17 +1,18 @@
+import 'dart:async';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class EditTodoUseCase extends UseCase<void, EditTodoUseCaseParams> {
+class EditTodoUseCase extends CompletableUseCase<EditTodoUseCaseParams> {
   final TodosRepository todosRepository;
   EditTodoUseCase(this.todosRepository);
-
   @override
-  Future<Observable<void>> buildUseCaseObservable(params) {
+  Future<Observable<void>> buildUseCaseObservable(EditTodoUseCaseParams params) async {
+    final StreamController<void> controller = StreamController();
     todosRepository.editTodo(params.id, params.title);
-    return null;
+    controller.close();
+    return Observable(controller.stream);
   }
-
 }
 
 class EditTodoUseCaseParams {
