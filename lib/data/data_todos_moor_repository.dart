@@ -30,8 +30,8 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  completeTodo(int id) {
-    // TODO: implement completeTodo
+  completeTodo(int id) async {
+    await _moor.completeTodo(id);
   }
 
   @override
@@ -47,7 +47,7 @@ class DataTodosMoorRepository extends TodosRepository {
 
   @override
   removeTodo(int id) async {
-    final todo = await _moor.deleteTodo(id);
+    await _moor.deleteTodo(id);
   }
 
   @override
