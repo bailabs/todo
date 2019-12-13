@@ -1,3 +1,4 @@
+import 'package:flutter_clean_todo/domain/entities/todo.dart';
 import 'package:moor/moor.dart';
 part 'database.g.dart';
 
@@ -10,7 +11,17 @@ class Todos extends Table {
 
 @UseMoor(tables: [Todos])
 class Database extends _$Database {
+
   @override
   int get schemaVersion => 1;
+
   Database(QueryExecutor e) : super(e);
+
+  Future<int> addTodo(Todo todo) => into(todos)
+    .insert(
+      TodosCompanion(
+        title: Value(todo.title),
+        completed: Value(todo.completed),
+      )
+    );
 }
