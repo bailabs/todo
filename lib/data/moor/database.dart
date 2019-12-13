@@ -18,6 +18,8 @@ class Database extends _$Database {
   Database(QueryExecutor e) : super(e);
 
   Future<List<TodoEntry>> get allTodos => select(todos).get();
+  Future<TodoEntry> getTodo(int id) => (select(todos)..where((todo) => todo.id.equals(id))).getSingle();
+  Future<int> deleteTodo(int id) => (delete(todos)..where((todo) => todo.id.equals(id))).go();
   Future<int> addTodo(Todo todo) => into(todos)
     .insert(
       TodosCompanion(

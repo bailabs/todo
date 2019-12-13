@@ -26,7 +26,6 @@ class DataTodosMoorRepository extends TodosRepository {
   get allTodos async {
     final List<TodoEntry> todos = await _moor.allTodos;
     _todos = mapTodoEntriesToTodos(todos);
-    print(_todos);
     return _todos;
   }
 
@@ -41,9 +40,9 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  Todo getTodo(int id) {
-    // TODO: implement getTodo
-    return null;
+  getTodo(int id) async {
+    final todo = await _moor.getTodo(id);
+    return mapTodoEntryToTodo(todo);
   }
 
   @override
