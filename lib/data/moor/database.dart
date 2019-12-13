@@ -20,6 +20,11 @@ class Database extends _$Database {
   Future<List<TodoEntry>> get allTodos => select(todos).get();
   Future<TodoEntry> getTodo(int id) => (select(todos)..where((todo) => todo.id.equals(id))).getSingle();
   Future<int> deleteTodo(int id) => (delete(todos)..where((todo) => todo.id.equals(id))).go();
+
+  Future editTodo(int id, String title) => (update(todos)..where((todo) => todo.id.equals(id))).write(
+    TodosCompanion(title: Value(title))
+  );
+
   Future completeTodo(int id) => (update(todos)..where((todo) => todo.id.equals(id))).write(
     TodosCompanion(completed: Value(true))
   );

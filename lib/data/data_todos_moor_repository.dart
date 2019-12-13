@@ -35,8 +35,8 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  editTodo(int id, String title) {
-    // TODO: implement editTodo
+  editTodo(int id, String title) async {
+    await _moor.editTodo(id, title);
   }
 
   @override
