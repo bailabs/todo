@@ -30,12 +30,12 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  void completeTodo(int id) {
+  completeTodo(int id) {
     // TODO: implement completeTodo
   }
 
   @override
-  void editTodo(int id, String title) {
+  editTodo(int id, String title) {
     // TODO: implement editTodo
   }
 
@@ -46,7 +46,7 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  void removeTodo(int id) {
+  removeTodo(int id) {
     // TODO: implement removeTodo
   }
 
