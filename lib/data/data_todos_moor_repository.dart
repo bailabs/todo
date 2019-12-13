@@ -1,3 +1,4 @@
+import 'package:flutter_clean_todo/data/mappers/todo_mapper.dart';
 import 'package:flutter_clean_todo/domain/entities/todo.dart';
 import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 import 'moor/database.dart';
@@ -5,8 +6,10 @@ import 'moor/mobile.dart';
 
 class DataTodosMoorRepository extends TodosRepository {
   Database _moor;
+  List<Todo> _todos;
 
   DataTodosMoorRepository._internal() {
+    _todos = [];
     _moor = Mobile().constructDb();
   }
 
@@ -20,8 +23,12 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  // TODO: implement allTodos
-  List<Todo> get allTodos => null;
+  get allTodos async {
+    final List<TodoEntry> todos = await _moor.allTodos;
+    _todos = mapTodoEntriesToTodos(todos);
+    print(_todos);
+    return _todos;
+  }
 
   @override
   void completeTodo(int id) {

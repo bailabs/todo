@@ -17,6 +17,7 @@ class Database extends _$Database {
 
   Database(QueryExecutor e) : super(e);
 
+  Future<List<TodoEntry>> get allTodos => select(todos).get();
   Future<int> addTodo(Todo todo) => into(todos)
     .insert(
       TodosCompanion(

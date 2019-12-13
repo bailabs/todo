@@ -7,5 +7,5 @@ abstract class TodosRepository {
   void removeTodo(int id);
   Todo getTodo(int id);
   int get todosLength;
-  List<Todo> get allTodos;
+  get allTodos;
 }
