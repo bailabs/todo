@@ -10,7 +10,7 @@ class RemoveTodoUseCase extends CompletableUseCase<RemoveTodoUseCaseParams> {
   @override
   Future<Observable<void>> buildUseCaseObservable(RemoveTodoUseCaseParams params) async {
     final StreamController<void> controller = StreamController();
-    todosRepository.removeTodo(params.id);
+    controller.add(await todosRepository.removeTodo(params.id));
     controller.close();
     return Observable(controller.stream);
   }

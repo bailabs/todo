@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
+import 'package:flutter_clean_todo/data/data_todos_moor_repository.dart';
 import 'package:flutter_clean_todo/data/data_todos_repository.dart';
 import 'todo_edit_controller.dart';
 import 'widgets/todo_edit_form.dart';
@@ -15,7 +16,7 @@ class TodoEditView extends View {
 
   @override
   _TodoEditViewState createState() =>
-    _TodoEditViewState(TodoEditController(DataTodosRepository(), id));
+    _TodoEditViewState(TodoEditController(DataTodosMoorRepository(), id));
 }
 
 class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {

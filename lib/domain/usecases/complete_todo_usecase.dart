@@ -10,7 +10,7 @@ class CompleteTodoUseCase extends CompletableUseCase<CompleteTodoUseCaseParams> 
   @override
   Future<Observable<void>> buildUseCaseObservable(CompleteTodoUseCaseParams params) async {
     final StreamController<void> controller = StreamController();
-    todosRepository.completeTodo(params.id);
+    controller.add(await todosRepository.completeTodo(params.id));
     controller.close();
     return Observable(controller.stream);
   }

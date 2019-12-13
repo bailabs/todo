@@ -1,11 +1,11 @@
 import '../entities/todo.dart';
 
 abstract class TodosRepository {
-  void addTodo(Todo todo);
-  void editTodo(int id, String title);
-  void completeTodo(int id);
-  void removeTodo(int id);
-  Todo getTodo(int id);
+  addTodo(Todo todo);
+  editTodo(int id, String title);
+  completeTodo(int id);
+  removeTodo(int id);
+  getTodo(int id);
   int get todosLength;
-  List<Todo> get allTodos;
+  get allTodos;
 }

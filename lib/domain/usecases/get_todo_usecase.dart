@@ -10,7 +10,7 @@ class GetTodoUseCase extends UseCase<Todo, int> {
   @override
   Future<Observable<Todo>> buildUseCaseObservable(int id) async {
     final StreamController<Todo> controller = StreamController();
-    controller.add(todosRepository.getTodo(id));
+    controller.add(await todosRepository.getTodo(id));
     controller.close();
     return Observable(controller.stream);
   }
