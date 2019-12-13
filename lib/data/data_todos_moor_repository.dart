@@ -46,8 +46,8 @@ class DataTodosMoorRepository extends TodosRepository {
   }
 
   @override
-  removeTodo(int id) {
-    // TODO: implement removeTodo
+  removeTodo(int id) async {
+    final todo = await _moor.deleteTodo(id);
   }
 
   @override
