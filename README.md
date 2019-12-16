@@ -19,7 +19,7 @@ $ flutter packages get
 ### 2. Install NDK
 The `moor` packages need [Android NDK](https://developer.android.com/ndk/downloads/index.html).
 
-Add `ndk.dir` with the NDK's location under `local.properties`
+Add `ndk.dir` with the NDK's location under `android/local.properties`
 
 e.g.
 ```
