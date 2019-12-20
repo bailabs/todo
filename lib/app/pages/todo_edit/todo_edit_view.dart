@@ -12,43 +12,43 @@ class TodoEditView extends View {
   TodoEditView({
     @required this.id,
     this.callback,
-  }): super();
+  }) : super();
 
   @override
   _TodoEditViewState createState() =>
-    _TodoEditViewState(TodoEditController(DataTodosMoorRepository(), id));
+      _TodoEditViewState(TodoEditController(DataTodosMoorRepository(), id));
 }
 
 class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
   _TodoEditViewState(TodoEditController controller) : super(controller);
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(
-      title: Text('Todo Edit'),
-      actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.delete),
-          onPressed: () {
-            controller.removeTodo(widget.id);
-            if (widget.callback != null) {
-              widget.callback();
-            }
-            Navigator.of(context).pop();
-          },
-        )
-      ],
-    ),
-    body: Container(
-      child: TodoEditForm(
-        initialValue: controller.title,
-        onEdit: (value) {
-          controller.editTodo(widget.id, value);
-          if (widget.callback != null) {
-            widget.callback();
-          }
-          Navigator.of(context).pop();
-        },
-      ),
-    ),
-  );
+        appBar: AppBar(
+          title: Text('Todo Edit'),
+          actions: <Widget>[
+            IconButton(
+              icon: Icon(Icons.delete),
+              onPressed: () {
+                controller.removeTodo(widget.id);
+                if (widget.callback != null) {
+                  widget.callback();
+                }
+                Navigator.of(context).pop();
+              },
+            )
+          ],
+        ),
+        body: Container(
+          child: TodoEditForm(
+            initialValue: controller.title,
+            onEdit: (value) {
+              controller.editTodo(widget.id, value);
+              if (widget.callback != null) {
+                widget.callback();
+              }
+              Navigator.of(context).pop();
+            },
+          ),
+        ),
+      );
 }

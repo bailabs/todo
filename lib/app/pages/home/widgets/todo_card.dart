@@ -15,14 +15,12 @@ class TodoCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-    color: this.completed ? Colors.blue : Colors.white,
-    child: InkWell(
-      onTap: this.onTap,
-      onLongPress: this.onLongPress,
-      child: Padding(
-        padding: EdgeInsets.all(21.0),
-        child: Text(this.title),
-      )
-    )
-  );
+      color: this.completed ? Colors.blue : Colors.white,
+      child: InkWell(
+          onTap: this.onTap,
+          onLongPress: this.onLongPress,
+          child: Padding(
+            padding: EdgeInsets.all(21.0),
+            child: Text(this.title),
+          )));
 }

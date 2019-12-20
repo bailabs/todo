@@ -11,18 +11,19 @@ class TodoEditPresenter extends Presenter {
 
   Function getTodoOnNext;
 
-  TodoEditPresenter(todosRepo):
-    removeTodoUseCase = RemoveTodoUseCase(todosRepo),
-    editTodoUseCase = EditTodoUseCase(todosRepo),
-    getTodoUseCase = GetTodoUseCase(todosRepo)
-  ;
+  TodoEditPresenter(todosRepo)
+      : removeTodoUseCase = RemoveTodoUseCase(todosRepo),
+        editTodoUseCase = EditTodoUseCase(todosRepo),
+        getTodoUseCase = GetTodoUseCase(todosRepo);
 
   void remove(int id) {
-    removeTodoUseCase.execute(_RemoveTodoObserver(), RemoveTodoUseCaseParams(id));
+    removeTodoUseCase.execute(
+        _RemoveTodoObserver(), RemoveTodoUseCaseParams(id));
   }
 
   void edit(int id, String title) {
-    editTodoUseCase.execute(_EditTodoObserver(), EditTodoUseCaseParams(id, title));
+    editTodoUseCase.execute(
+        _EditTodoObserver(), EditTodoUseCaseParams(id, title));
   }
 
   void get(int id) {

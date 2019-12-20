@@ -44,8 +44,7 @@ class TodoEditFormState extends State<TodoEditForm> {
                 if (_key.currentState.validate()) {
                   widget.onEdit(_title);
                 }
-              }
-          ),
+              }),
         ],
       ),
     );

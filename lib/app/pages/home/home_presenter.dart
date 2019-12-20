@@ -10,13 +10,13 @@ class HomePresenter extends Presenter {
   Function getAllTodosOnNext;
   Function completeOnNext;
 
-  HomePresenter(todosRepo):
-    completeTodoUseCase = CompleteTodoUseCase(todosRepo),
-    getAllTodosUseCase = GetAllTodosUseCase(todosRepo)
-  ;
+  HomePresenter(todosRepo)
+      : completeTodoUseCase = CompleteTodoUseCase(todosRepo),
+        getAllTodosUseCase = GetAllTodosUseCase(todosRepo);
 
   void complete(int id) {
-    completeTodoUseCase.execute(_CompleteTodoObserver(this), CompleteTodoUseCaseParams(id));
+    completeTodoUseCase.execute(
+        _CompleteTodoObserver(this), CompleteTodoUseCaseParams(id));
   }
 
   void getAll() {
@@ -68,5 +68,4 @@ class _GetAllTodosObserver implements Observer<List<Todo>> {
   void onNext(List<Todo> response) {
     presenter.getAllTodosOnNext(response);
   }
-
 }

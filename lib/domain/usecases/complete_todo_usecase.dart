@@ -3,12 +3,14 @@ import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
 import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class CompleteTodoUseCase extends CompletableUseCase<CompleteTodoUseCaseParams> {
+class CompleteTodoUseCase
+    extends CompletableUseCase<CompleteTodoUseCaseParams> {
   final TodosRepository todosRepository;
   CompleteTodoUseCase(this.todosRepository);
 
   @override
-  Future<Observable<void>> buildUseCaseObservable(CompleteTodoUseCaseParams params) async {
+  Future<Observable<void>> buildUseCaseObservable(
+      CompleteTodoUseCaseParams params) async {
     final StreamController<void> controller = StreamController();
     controller.add(await todosRepository.completeTodo(params.id));
     controller.close();

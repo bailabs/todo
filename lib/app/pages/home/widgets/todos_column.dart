@@ -14,19 +14,19 @@ class TodosColumn extends StatelessWidget {
   });
 
   List<Widget> dataToWidgets() {
-    return data.map((todo) =>
-      TodoCard(
-        title: todo.title,
-        completed: todo.completed,
-        onTap: () => this.onPressed(todo.id),
-        onLongPress: () => this.onLongPressed(todo.id),
-      )
-    ).toList();
+    return data
+        .map((todo) => TodoCard(
+              title: todo.title,
+              completed: todo.completed,
+              onTap: () => this.onPressed(todo.id),
+              onLongPress: () => this.onLongPressed(todo.id),
+            ))
+        .toList();
   }
 
   @override
   Widget build(BuildContext context) => Column(
-    crossAxisAlignment: CrossAxisAlignment.stretch,
-    children: dataToWidgets(),
-  );
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: dataToWidgets(),
+      );
 }

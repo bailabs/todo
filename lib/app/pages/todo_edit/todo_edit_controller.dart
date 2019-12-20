@@ -9,8 +9,8 @@ class TodoEditController extends Controller {
   String _title;
   String get title => _title;
 
-  TodoEditController(TodosRepository todosRepo, int id) :
-    presenter = TodoEditPresenter(todosRepo) {
+  TodoEditController(TodosRepository todosRepo, int id)
+      : presenter = TodoEditPresenter(todosRepo) {
     _title = '';
     initListeners();
     loadOnStart();
@@ -28,5 +28,4 @@ class TodoEditController extends Controller {
   void removeTodo(int id) => this.presenter.remove(id);
   void editTodo(int id, String title) => this.presenter.edit(id, title);
   void retrieveData(int id) => this.presenter.get(id);
-
 }

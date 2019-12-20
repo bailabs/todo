@@ -11,6 +11,7 @@ Todo mapTodoEntryToTodo(TodoEntry todoEntry) {
 
 List<Todo> mapTodoEntriesToTodos(List<TodoEntry> todoEntries) {
   final List<Todo> todoList = List<Todo>();
-  todoEntries.forEach((todoEntry) => todoList.add(mapTodoEntryToTodo(todoEntry)));
+  todoEntries
+      .forEach((todoEntry) => todoList.add(mapTodoEntryToTodo(todoEntry)));
   return todoList;
 }

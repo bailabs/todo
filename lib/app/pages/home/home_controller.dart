@@ -9,8 +9,8 @@ class HomeController extends Controller {
   List<Todo> _todos;
   List<Todo> get todoList => _todos;
 
-  HomeController(TodosRepository todosRepository):
-    presenter = HomePresenter(todosRepository) {
+  HomeController(TodosRepository todosRepository)
+      : presenter = HomePresenter(todosRepository) {
     _todos = List<Todo>();
     initListeners();
     loadOnStart();

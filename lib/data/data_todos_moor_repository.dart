@@ -13,7 +13,8 @@ class DataTodosMoorRepository extends TodosRepository {
     _moor = Mobile().constructDb();
   }
 
-  static DataTodosMoorRepository _instance = DataTodosMoorRepository._internal();
+  static DataTodosMoorRepository _instance =
+      DataTodosMoorRepository._internal();
   factory DataTodosMoorRepository() => _instance;
 
   @override
@@ -53,5 +54,4 @@ class DataTodosMoorRepository extends TodosRepository {
   @override
   // TODO: implement todosLength
   int get todosLength => null;
-
 }

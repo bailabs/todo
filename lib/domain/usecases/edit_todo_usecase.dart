@@ -7,7 +7,8 @@ class EditTodoUseCase extends CompletableUseCase<EditTodoUseCaseParams> {
   final TodosRepository todosRepository;
   EditTodoUseCase(this.todosRepository);
   @override
-  Future<Observable<void>> buildUseCaseObservable(EditTodoUseCaseParams params) async {
+  Future<Observable<void>> buildUseCaseObservable(
+      EditTodoUseCaseParams params) async {
     final StreamController<void> controller = StreamController();
     controller.add(await todosRepository.editTodo(params.id, params.title));
     controller.close();

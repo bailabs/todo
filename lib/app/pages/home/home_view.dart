@@ -9,9 +9,8 @@ import 'widgets/todos_column.dart';
 
 class HomeView extends View {
   @override
-  _HomeViewState createState() => _HomeViewState(
-      HomeController(DataTodosMoorRepository())
-  );
+  _HomeViewState createState() =>
+      _HomeViewState(HomeController(DataTodosMoorRepository()));
 }
 
 class _HomeViewState extends ViewState<HomeView, HomeController> {
@@ -19,35 +18,35 @@ class _HomeViewState extends ViewState<HomeView, HomeController> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
-    appBar: AppBar(title: Text('Home')),
-    floatingActionButton: FloatingActionButton(
-      child: Icon(Icons.add),
-      onPressed: () => Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (_) => TodoAddView(
-            callback: controller.retrieveData,
-          ),
-        ),
-      ),
-    ),
-    body: Container(
-      child: SingleChildScrollView(
-        child: TodosColumn(
-          data: controller.todoList,
-          onLongPressed: (value) => callHandler(
-            controller.completeTodo,
-            params: { 'id': value },
-          ),
-          onPressed: (value) => Navigator.of(context).push(
+        appBar: AppBar(title: Text('Home')),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.add),
+          onPressed: () => Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (_) => TodoEditView(
-                id: value,
+              builder: (_) => TodoAddView(
                 callback: controller.retrieveData,
               ),
             ),
           ),
         ),
-      ),
-    ),
-  );
+        body: Container(
+          child: SingleChildScrollView(
+            child: TodosColumn(
+              data: controller.todoList,
+              onLongPressed: (value) => callHandler(
+                controller.completeTodo,
+                params: {'id': value},
+              ),
+              onPressed: (value) => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (_) => TodoEditView(
+                    id: value,
+                    callback: controller.retrieveData,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+      );
 }
