@@ -1,6 +1,7 @@
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
 import 'package:flutter_clean_todo/domain/entities/todo.dart';
+import 'package:flutter_clean_todo/domain/repositories/todos_repository.dart';
+
 import 'todo_edit_presenter.dart';
 
 class TodoEditController extends Controller {
@@ -13,7 +14,6 @@ class TodoEditController extends Controller {
       : presenter = TodoEditPresenter(todosRepo) {
     _title = '';
     initListeners();
-    loadOnStart();
     retrieveData(id);
   }
 

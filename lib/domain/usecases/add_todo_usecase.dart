@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:rxdart/rxdart.dart';
 
 import '../entities/todo.dart';
 import '../repositories/todos_repository.dart';
@@ -13,7 +12,7 @@ class AddTodoUseCase
   AddTodoUseCase(this.todosRepository);
 
   @override
-  Future<Observable<AddTodoUseCaseResponse>> buildUseCaseObservable(
+  Future<Stream<AddTodoUseCaseResponse>> buildUseCaseStream(
       AddTodoUseCaseParams params) async {
     final StreamController<AddTodoUseCaseResponse> controller =
         StreamController();
@@ -32,7 +31,7 @@ class AddTodoUseCase
       logger.severe('AddTodoUseCase unsuccessful.');
       controller.addError(e);
     }
-    return Observable(controller.stream);
+    return controller.stream;
   }
 }
 

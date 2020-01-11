@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_clean_architecture/flutter_clean_architecture.dart';
-import 'package:flutter_clean_todo/data/data_todos_moor_repository.dart';
 import 'package:flutter_clean_todo/data/data_todos_repository.dart';
+
 import 'todo_edit_controller.dart';
 import 'widgets/todo_edit_form.dart';
 
@@ -15,14 +15,13 @@ class TodoEditView extends View {
   }) : super();
 
   @override
-  _TodoEditViewState createState() =>
-      _TodoEditViewState(TodoEditController(DataTodosMoorRepository(), id));
+  _TodoEditViewState createState() => _TodoEditViewState(this.id);
 }
 
 class _TodoEditViewState extends ViewState<TodoEditView, TodoEditController> {
-  _TodoEditViewState(TodoEditController controller) : super(controller);
+  _TodoEditViewState(id) : super(TodoEditController(DataTodosRepository(), id));
   @override
-  Widget build(BuildContext context) => Scaffold(
+  Widget buildPage() => Scaffold(
         appBar: AppBar(
           title: Text('Todo Edit'),
           actions: <Widget>[
